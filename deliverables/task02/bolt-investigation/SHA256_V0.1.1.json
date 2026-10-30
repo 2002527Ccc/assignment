@@ -1,0 +1,23 @@
+{
+  "diagnostic_version": "0.1.1",
+  "formal_mod_changed": false,
+  "game_compiled": false,
+  "old_zip_sha256": {
+    "CHRONOS_TASK02_FinaleDiagnostics_V0.1.0.zip": "41ae8c7d71da10e032b17cf4346fe919756f0ce7b1268b70d2b48e9a21cf2183",
+    "CHRONOS_TASK02_Source_and_Review.zip": "0bc8bca3c9aa0dbf91f69e4970dd0f3c6215ff24769d8886ebbadfc430953938"
+  },
+  "patch": {
+    "README_CH13_TASK02.md": "59c527a2156388dd77b5932f5d635d0ecab7796d0fcb7ea2395f2592d7381213",
+    "bin/x64/plugins/cyber_engine_tweaks/mods/CH13FinaleDiagnostics/init.lua": "3dcdf85609ec410438c161b3d6b64c6b83fedc2fc6d04ac287d46f9479b840fe",
+    "r6/scripts/CH13FinaleDiagnostics/CH13FinaleDiagnostics.reds": "5bc6803b368aeb63d7a9345c87b61982c0090541a78cce7ac792904cc39e6599",
+    "r6/scripts/CH13FinaleDiagnostics/CH13FinaleHitDiagnostics.reds": "b5aba731c4212c1164f5984d8b72705c534e9b93d112461337aab9054e7feab4",
+    "r6/scripts/Chronos13/CH13HitscanConversion.reds": "a333f24075fb8afc57e77e01ef77282e3d72b46f1c450c7ebe483c82eee42fdf",
+    "r6/scripts/Chronos13/CH13Projectiles.reds": "373632f20b25c2f6e9aee23688e2b7ea179f55590532da0a440aaf124e3a921e"
+  },
+  "source": {
+    "CH13FinaleDiagnostics.reds": "5bc6803b368aeb63d7a9345c87b61982c0090541a78cce7ac792904cc39e6599",
+    "CH13FinaleHitDiagnostics.reds": "b5aba731c4212c1164f5984d8b72705c534e9b93d112461337aab9054e7feab4",
+    "init.lua": "3dcdf85609ec410438c161b3d6b64c6b83fedc2fc6d04ac287d46f9479b840fe"
+  },
+  "evidence_sha256": "9c88f2f6a0c795aa72fdaad9806b19c3eaadcd9a5a868d5877aa9c16ea3b0316"
+}

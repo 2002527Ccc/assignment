@@ -1,0 +1,19 @@
+本次修订说明（2026-10-30）
+1. 命运：原版升级结束后重新获取物品，只有 WasItemUpgraded 比升级前增加超过 0.5 才同步下一阶，避免无条件升阶。
+2. 终曲：共享命中条件排除预测事件、DealNoDamage、DamageNullified、FriendlyFireIgnored、格挡、偏转及零生命伤害。黑墙和义体故障均受此条件约束。
+3. 在劫：仅修正卸载说明，补充 zz_InevitableSlots.yaml；游戏代码未改。
+4. 终曲：当前安装/功能/验证说明合并至 README_Finale.txt，移除两份过期版本说明。
+5. 所有 archive、XL 和 YAML 均与上传原包逐字节一致。品质迁移、上传更新频率、四槽脚本及疑似闲置部件均保留。
+验证范围：ZIP CRC、YAML/XL 静态解析、文件差异、资源字节一致性及脚本括号检查。
+未运行游戏、redscript 编译器或 TweakXL 导入器；不能视为实机通过。
+安装前备份存档，停用旧版本，仅部署一个对应整合包。若手动安装，旧说明文件可自行删除。
+实测重点：命运正常升级/升级失败时材料与阶级、5++ 上限、存取仓库与重载；终曲有效满蓄能开标、后续有效命中推进、格挡和无伤害攻击不触发、普通目标及 Boss 结算、四槽与语音。
+回退：卸载修订包后重新部署原上传包；保存修订前存档。
+
+差异：
+0: changed README_在劫.txt
+1: changed r6/scripts/TreasonDefy/TreasonDefyPurchase.reds
+2: removed obsolete note README_R4_使用说明.txt
+2: changed README_Finale.txt
+2: removed obsolete note README_V6.1_静态改动与注意事项.txt
+2: changed r6/scripts/OneEyedTech/OneEyedTech.reds

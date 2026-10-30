@@ -1,0 +1,31 @@
+{
+  "baseline": {
+    "README_CHRONOS_V032_先读.txt": "27b8f515c837945a68c1aa47e325801641b5c3f24752adcdcd2f963362f41485",
+    "bin/x64/plugins/cyber_engine_tweaks/mods/Chronos13/config.lua": "50110c2eb188040653f8389dfd369282aad1c6c0268d653964a51f0e3b503982",
+    "bin/x64/plugins/cyber_engine_tweaks/mods/Chronos13/init.lua": "a770ed9435a08ff4b0b97fb8b605434867f081279f770ee58fd1475e49c5af32",
+    "r6/scripts/Chronos13/CH13Bridge.reds": "6cab0394d6a312dfee5c9482d8f43ee9e091c0b73a4e8644edf766618f89d933",
+    "r6/scripts/Chronos13/CH13HitscanConversion.reds": "6d512d1667a8b3572acf3ff26176737103682dd70fe7b3cdb206a7138059159f",
+    "r6/scripts/Chronos13/CH13Localization.reds": "8587a2f22fa3383ff85318f69f89054e0a8cc18ae48621b34a3f9a1ac63dfa25",
+    "r6/scripts/Chronos13/CH13Projectiles.reds": "4cd49b3c2e8c64ee78153ef064a9dc1c5dca2e2b3f4bbaa5768a05c0822fb859",
+    "r6/tweaks/Chronos13/Chronos13.yaml": "c63d67a947cbb4fc8c04f3ee99cbb6171178aec04cb7517e3ff86c74e829fd2b"
+  },
+  "finale_reference": {
+    "README_Finale.txt": "276fd2ef6f451bf875bf9527c2ddd60f821c46ed2665ec9e81ec8b7425fbd3cb",
+    "README_R4_使用说明.txt": "4facd5774e52e8d5f88d5803466eb6478406045dc79ad932d7570e64ebabb75e",
+    "README_V6.1_静态改动与注意事项.txt": "929abab6f42b0c181bc782196894995c749e54aca0677ed027a5708a7f7cfad5",
+    "archive/pc/mod/00_Finale_R4_CharcoalBlack.archive": "39944bb8437e97252fe65e8f2cbe33d8854cd920ba306d6530a5971e1c4a88a1",
+    "archive/pc/mod/One_Eyed.archive": "d25fb0facb9a6bf59124cab03a33967d57bbed4c16f9f2b59b42f0cfe62491c3",
+    "archive/pc/mod/One_Eyed.xl": "254485f4a85ad1b2800058e94a7d631a3b26663a9f90054c81d3d702337586b3",
+    "r6/scripts/OneEyedTech/FinaleSlots.reds": "fcc2c46ee1fba779779262e16e18f5ea965f30c9f67e12f36c33be1e33a85843",
+    "r6/scripts/OneEyedTech/OneEyedTech.reds": "d93e918cd80d4f8d8c46c6f5be050781e53b6bdf7b221d25a189a3a414fdd8db",
+    "r6/tweaks/One_Eyed_SemiAuto.yaml": "919ae6dbe330a3c36c8ac816ba957c13bdd914704a416f4d286ecb2bcc5052aa"
+  },
+  "patch": {
+    "README_CH13_TASK02.md": "336363be9628f0e39cf5a0f0b9cded916ab7ccb2f9163a0911973fd96dffe4db",
+    "bin/x64/plugins/cyber_engine_tweaks/mods/CH13FinaleDiagnostics/init.lua": "59b541b95353adf8b62135eeb34e938fef75ed4e5f5bf44a79ee83911bf9f684",
+    "r6/scripts/CH13FinaleDiagnostics/CH13FinaleDiagnostics.reds": "50bfd5edc801360e63a8397247e52a3ccdcd96122713ed6acc1a9f7be26790a4",
+    "r6/scripts/CH13FinaleDiagnostics/CH13FinaleHitDiagnostics.reds": "24bed77e9f01e1ebec48131f03551c3a5e554d075da861bc538a47f2be12c24b",
+    "r6/scripts/Chronos13/CH13HitscanConversion.reds": "a333f24075fb8afc57e77e01ef77282e3d72b46f1c450c7ebe483c82eee42fdf",
+    "r6/scripts/Chronos13/CH13Projectiles.reds": "373632f20b25c2f6e9aee23688e2b7ea179f55590532da0a440aaf124e3a921e"
+  }
+}

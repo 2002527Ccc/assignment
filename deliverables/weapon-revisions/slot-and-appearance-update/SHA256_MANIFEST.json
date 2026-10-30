@@ -1,0 +1,17 @@
+{
+  "Defy_TwoModSlots_NoScope.zip": "0495bbda8de5f8614d32533c0370751486db73d6fb6f3882c6350fad8ff9396e",
+  "Defy_two_slots.diff": "e5c6697a8b1f32feb4f5c0b84e0cfd20944bfaf19942b0eeb14c540fa8f46c91",
+  "Finale_HitFilter_ScriptOnly.zip": "7a16e6ce38977e40e53e2b9e26a354871229459d72567f0bcfe89366ef4d2e7e",
+  "README.md": "16e69a52936ae926dea88608f8bc33c96f0c23e30f9699c78d41a4bf6eb10976",
+  "defy-validation.json": "bca4ef1e445b2524fe0a046b9d368770b45affe92afdf4893d1c1c6170422670",
+  "finale-upload-comparison.json": "bcb986e85386bfadca2d5b2406efbb94442e1fe2354e3e9c9fe62d8d318ae6ce",
+  "source/defy/README_Mingyun.txt": "db79cacd0599a48263d730baac5db59f0e8feb38028069e3253b60861db00dbc",
+  "source/defy/README_本次代码审查修订.txt": "8e481ab14ad7de9ab0f8960390cb1492e744ef8dac5716a6757630d145681f96",
+  "source/defy/archive/pc/mod/Treason and Defy.archive": "21ff37ddec70ca5bee3ac649b6255cda6f9bd95100301083822b7d82fa9e80cc",
+  "source/defy/archive/pc/mod/Treason and Defy.archive.xl": "619a79ffccab73aa424cf181bccfa2f3b1b8780b4f72c0ab0b3a4ab11a5fb7c8",
+  "source/defy/r6/scripts/TreasonDefy/TreasonDefyPurchase.reds": "a3d2b57d19feff99318ec8f89985df43c8f0b22850b11e0af4297646d17597f0",
+  "source/defy/r6/tweaks/treason_defy.yaml": "6f501c96a22c5256a4036c53d900c590ebabf7d633483d1ffaa937109a6e3c18",
+  "source/defy/r6/tweaks/treason_defy_vendor.yaml": "a7c1d3b80e9a2c135137ad24a6f3546b9315abb3b87348a46b7c50ef59a6e339",
+  "source/finale-script-only/README_仅脚本补丁.txt": "1fbc825418b04b83f14c3752b01ceea7036e6c28afa352709aed2aea7379f0a5",
+  "source/finale-script-only/r6/scripts/OneEyedTech/OneEyedTech.reds": "759de52c480a90f466a923d71c7369a7fc02fbabb51daae0d9a82a7d0626b9c3"
+}

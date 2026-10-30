@@ -1,0 +1,29 @@
+factories:
+  - base\treason_defy\treason_defy.csv
+localization:
+  onscreens:
+    en-us: base\treason_defy\localization\en-us.json
+    kr-kr: base\treason_defy\localization\kr-kr.json
+    zh-cn: base\treason_defy\localization\zh-cn.json
+    zh-tw: base\treason_defy\localization\zh-cn.json
+
+# Preserve native Nue structural records and add only the custom appearance names.
+# No existing vanilla appearance or part record is replaced.
+resource:
+  patch:
+    base\treason_defy\appearances\defy_rcv.app:
+      props: [appearances]
+      targets:
+        - base\weapons\firearms\handgun\tsunami_nue\appearances\w_handgun__tsunami_nue__rcv1_01.app
+    base\treason_defy\appearances\defy_base.app:
+      props: [appearances]
+      targets:
+        - base\weapons\firearms\handgun\tsunami_nue\appearances\w_handgun__tsunami_nue__base1_01.app
+    base\treason_defy\appearances\defy_mag_std.app:
+      props: [appearances]
+      targets:
+        - base\weapons\firearms\handgun\tsunami_nue\appearances\w_handgun__tsunami_nue__mag_std_01.app
+    base\treason_defy\appearances\defy_mag_stdr.app:
+      props: [appearances]
+      targets:
+        - base\weapons\firearms\handgun\tsunami_nue\appearances\w_handgun__tsunami_nue__mag_stdr_01.app

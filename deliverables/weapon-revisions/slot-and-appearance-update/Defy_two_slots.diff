@@ -1,0 +1,114 @@
+--- previous/README_Mingyun.txt
++++ current/README_Mingyun.txt
+@@ -23,10 +23,11 @@
+ 
+ 获取与存档
+ 保留威尔逊商店及限购一次规则，已有购买标记不会自动清除。
+-本版为第二次、也是最后一次升级修复尝试。升级页和实际扣料直接按显示阶数选择原版材料表。
++保留上一轮升级成功判定修复；本次仅调整可安装附件槽。升级页和实际扣料直接按显示阶数选择原版材料表。
+ 旧枪在进入升级详情页及实际升级前会校准计数；升级后再次同步到下一档。
+ 校准保留枪当时的显示阶级；已正常升阶的枪不会一律重置成 1 阶。
+-若旧枪仍显示异常，可用下方指令新生成一把验证。
++安装本版前先在旧版本中卸下命运已装的可拆卸瞄具，保存并退出游戏，再停用旧包并启用本包。
++没有自动删除存档中旧配件的迁移脚本；旧实例若仍显示瞄具槽，可用下方指令新生成一把验证。
+ 已安装 Cyber Engine Tweaks 时，可在控制台输入：
+ 
+ Game.AddToInventory("Items.Preset_Nue_Defy", 1)
+@@ -46,12 +47,13 @@
+ 可继续调整
+ 伤害倍率位于 r6\tweaks\treason_defy.yaml 的 Items.TD_PrideDamageBoost，当前 value: 1.10。
+ 还可调整弹匣、射速、射程、后坐力、散布、触发概率、持续时间、升级成本、配件槽和商店库存。
+-当前沿用 NoMuzzle 蓝图，没有外接枪口配件槽。
++当前使用命运专属 Items.TD_DefyTwoModBlueprint：两个普通动能手枪插件槽，初始1阶开放；没有瞄具槽和枪口槽。
++槽位采用原版 Collectible 类型，不新增自定义槽位或通用 UI 包装；内置不朽被动仍占独立隐藏槽。
+ 
+ 验证范围
+ 已静态检查原版费用算法、升级前后计数、升级详情页与预览流程、10 段材料表、作用范围和 ZIP 完整性。
+ 尚未使用游戏缓存编译 REDscript，不能将静态检查视为游戏内验证。
+-本次仅改动品质相关 YAML、原有 REDscript 和本说明；资源包与三种语言文案保持上一版字节。
++本次只修改槽位相关 YAML 和说明；原有 REDscript、归档及 XL 保持上一轮升级判定修订版字节。
+ 未改动的模型、材质、图标和激光资源保持原始字节。
+ 当前环境无法运行 Cyberpunk 2077，尚未进行游戏内实测。
+ 
+--- previous/README_本次代码审查修订.txt
++++ current/README_本次代码审查修订.txt
+@@ -1,11 +1,13 @@
+-本次修订说明（2026-10-30）
+-1. 命运：原版升级结束后重新获取物品，只有 WasItemUpgraded 比升级前增加超过 0.5 才同步下一阶，避免无条件升阶。
+-2. 终曲：共享命中条件排除预测事件、DealNoDamage、DamageNullified、FriendlyFireIgnored、格挡、偏转及零生命伤害。黑墙和义体故障均受此条件约束。
+-3. 在劫：仅修正卸载说明，补充 zz_InevitableSlots.yaml；游戏代码未改。
+-4. 终曲：当前安装/功能/验证说明合并至 README_Finale.txt，移除两份过期版本说明。
+-5. 所有 archive、XL 和 YAML 均与上传原包逐字节一致。品质迁移、上传更新频率、四槽脚本及疑似闲置部件均保留。
+-验证范围：ZIP CRC、YAML/XL 静态解析、文件差异、资源字节一致性及脚本括号检查。
+-未运行游戏、redscript 编译器或 TweakXL 导入器；不能视为实机通过。
+-安装前备份存档，停用旧版本，仅部署一个对应整合包。若手动安装，旧说明文件可自行删除。
+-实测重点：命运正常升级/升级失败时材料与阶级、5++ 上限、存取仓库与重载；终曲有效满蓄能开标、后续有效命中推进、格挡和无伤害攻击不触发、普通目标及 Boss 结算、四槽与语音。
+-回退：卸载修订包后重新部署原上传包；保存修订前存档。
++本次修订：命运双插件槽 / 移除瞄具槽（2026-10-30）
++
++1. 命运改用独立 Items.TD_DefyTwoModBlueprint，仅赋给 Items.Preset_Nue_Defy。
++2. 两个普通插件槽采用原版 Power_Handgun_WeaponMod1_Collectible 与 2_Collectible；原版 unlockedBy=Common，蓝图元素无品质前置。
++3. 蓝图中不包含 Scope 或 PowerModule；同时移除 slotPartList 的 HandgunPossibleScopesList 和 slotPartListPreset 的 HandgunAndRevolverScopesPartList。
++4. 两普通槽设为空配件预设，不随机附送插件。IconicRangedWeaponModElement 和 TD_IconicPartPreset 保留，Crimestopper 内置不朽被动不占普通槽。
++5. 保留上一轮命运升级成功判定，未改武器属性、商店、材质、模型、激光、归档或 XL；不修改原版蓝图、槽位或插件的全局记录。
++
++安装：先在旧版本卸下命运已装的可拆卸瞄具，保存并退出游戏，停用旧命运包，启用本版并部署。不要同时启用两份完整命运包。
++现有存档附件没有自动迁移/删除脚本；若旧枪缓存未更新，先用 Game.AddToInventory("Items.Preset_Nue_Defy", 1) 新生成一把验证。
++
++验证范围：静态 YAML 解析、蓝图与槽位引用核对、隐藏不朽槽保留、原版 Common 解锁/插件兼容性参考、非槽位记录和资源字节一致性。
++未运行游戏、REDscript 编译器或 TweakXL 导入器；两个槽的 UI、插件安装与旧枪更新仍需实机验证。
+--- previous/r6/tweaks/treason_defy.yaml
++++ current/r6/tweaks/treason_defy.yaml
+@@ -19,7 +19,7 @@
+   evolution: WeaponEvolution.Power
+   quality: Quality.Common
+   scaleToPlayer: false
+-  blueprint: Items.Iconic_Ranged_Weapon_NoMuzzle_Blueprint
++  blueprint: Items.TD_DefyTwoModBlueprint
+   tags:
+     - !append-once IconicWeapon
+   # Start with empty inherited arrays, then import Pride's complete native stats.
+@@ -63,7 +63,6 @@
+       itemPartList:
+         - $type: gamedataItemPartListElement_Record
+           item: Items.w_handgun__tsunami_nue__mag_stdr
+-    - Items.HandgunPossibleScopesList
+   slotPartListPreset:
+     - $type: gamedataSlotItemPartPreset_Record
+       slot: AttachmentSlots.Receiver
+@@ -81,8 +80,34 @@
+       slot: AttachmentSlots.MagazineEmpty
+       itemPartPreset: Items.w_handgun__tsunami_nue__mag_stdr
+       itemPartList: []
+-    - Items.HandgunAndRevolverScopesPartList
++    - $type: gamedataSlotItemPartPreset_Record
++      slot: AttachmentSlots.Power_Handgun_WeaponMod1_Collectible
++      itemPartList: []
++    - $type: gamedataSlotItemPartPreset_Record
++      slot: AttachmentSlots.Power_Handgun_WeaponMod2_Collectible
++      itemPartList: []
+     - Items.TD_IconicPartPreset
++
++# Local blueprint: two native Common-unlocked weapon-mod slots, no scope/muzzle.
++# The hidden iconic attachment remains independent of these ordinary mod slots.
++Items.TD_DefyTwoModBlueprint:
++  $type: gamedataItemBlueprint_Record
++  rootElement:
++    $type: gamedataItemBlueprintElement_Record
++    slot: AttachmentSlots.Receiver
++    childElements:
++      - Items.Power_Collectible_Handgun_WeaponMod1Element
++      - Items.Power_Collectible_Handgun_WeaponMod2Element
++      - Items.IconicRangedWeaponModElement
++      - $type: gamedataItemBlueprintElement_Record
++        slot: AttachmentSlots.Magazine
++        childElements: []
++      - $type: gamedataItemBlueprintElement_Record
++        slot: AttachmentSlots.MagazineEmpty
++        childElements: []
++      - $type: gamedataItemBlueprintElement_Record
++        slot: AttachmentSlots.Barrel
++        childElements: []
+ 
+ Items.TD_defy_rcv:
+   $base: Items.w_handgun__tsunami_nue__rcv1

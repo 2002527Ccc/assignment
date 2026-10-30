@@ -1,0 +1,20 @@
+{
+  "checks_passed": [
+    "yaml_parse",
+    "two_native_collectible_mod_slots",
+    "hidden_iconic_preserved",
+    "no_scope_or_muzzle",
+    "unchanged_non_slot_records",
+    "unchanged_archive_xl_redscript_vendor"
+  ],
+  "changed_files": [
+    "README_本次代码审查修订.txt",
+    "README_Mingyun.txt",
+    "r6/tweaks/treason_defy.yaml"
+  ],
+  "unrun": [
+    "TweakXL import",
+    "game runtime",
+    "old-instance migration"
+  ]
+}

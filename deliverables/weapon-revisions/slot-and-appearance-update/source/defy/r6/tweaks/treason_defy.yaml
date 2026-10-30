@@ -1,0 +1,179 @@
+# 命运 / Defy: Pride base stats +10%, customized Crimestopper passive, Power pistol.
+# This internal base clears Nue arrays before Pride data is appended.
+# Empty assignment avoids doubling the two weapons' shared modifiers.
+Items.TD_DefyStatsBase:
+  $base: Items.Preset_Nue_Default
+  statModifiers: []
+  statModifierGroups: []
+  OnAttach: []
+  OnEquip: []
+
+Items.Preset_Nue_Defy:
+  $base: Items.TD_DefyStatsBase
+  displayName: LocKey#td_defy_name
+  localizedDescription: LocKey#td_defy_description
+  iconPath: TD_Defy
+  appearanceName: defy
+  appearanceResourceName: td_defy_main
+  visualTags: [Default]
+  evolution: WeaponEvolution.Power
+  quality: Quality.Common
+  scaleToPlayer: false
+  blueprint: Items.TD_DefyTwoModBlueprint
+  tags:
+    - !append-once IconicWeapon
+  # Start with empty inherited arrays, then import Pride's complete native stats.
+  # Keep the Nue appearance/entity, while replacing its combat/handling data.
+  baseReloadTime: 0.9
+  baseEmptyReloadTime: 0.9
+  statModifiers:
+    - !append-from Items.Preset_Liberty_Rogue.statModifiers
+    - !remove Quality.LegendaryQualityModifier
+    - !append-once Quality.IconicItem
+  statModifierGroups:
+    - !append-from Items.Preset_Liberty_Rogue.statModifierGroups
+    - !remove Items.QualityRandomization
+    - !remove Items.IconicQualityRandomization
+    - !remove Items.ItemPlusRandomizer_MaxQuality
+    - !remove Items.ItemPlusRandomizer_Below_MaxQuality
+    - !append-once Items.TD_IconicTierProgression
+    - !append-once Items.TD_PrideDamageBoost
+  OnAttach:
+    - !append-from Items.Preset_Liberty_Rogue.OnAttach
+  OnEquip:
+    - !append-from Items.Preset_Liberty_Rogue.OnEquip
+  slotPartList:
+    - $type: gamedataSlotItemPartListElement_Record
+      slot: AttachmentSlots.Receiver
+      itemPartList:
+        - $type: gamedataItemPartListElement_Record
+          item: Items.w_handgun__tsunami_nue__rcv1
+    - $type: gamedataSlotItemPartListElement_Record
+      slot: AttachmentSlots.Barrel
+      itemPartList:
+        - $type: gamedataItemPartListElement_Record
+          item: Items.w_handgun__tsunami_nue__base1
+    - $type: gamedataSlotItemPartListElement_Record
+      slot: AttachmentSlots.Magazine
+      itemPartList:
+        - $type: gamedataItemPartListElement_Record
+          item: Items.w_handgun__tsunami_nue__mag_std
+    - $type: gamedataSlotItemPartListElement_Record
+      slot: AttachmentSlots.MagazineEmpty
+      itemPartList:
+        - $type: gamedataItemPartListElement_Record
+          item: Items.w_handgun__tsunami_nue__mag_stdr
+  slotPartListPreset:
+    - $type: gamedataSlotItemPartPreset_Record
+      slot: AttachmentSlots.Receiver
+      itemPartPreset: Items.w_handgun__tsunami_nue__rcv1
+      itemPartList: []
+    - $type: gamedataSlotItemPartPreset_Record
+      slot: AttachmentSlots.Barrel
+      itemPartPreset: Items.w_handgun__tsunami_nue__base1
+      itemPartList: []
+    - $type: gamedataSlotItemPartPreset_Record
+      slot: AttachmentSlots.Magazine
+      itemPartPreset: Items.w_handgun__tsunami_nue__mag_std
+      itemPartList: []
+    - $type: gamedataSlotItemPartPreset_Record
+      slot: AttachmentSlots.MagazineEmpty
+      itemPartPreset: Items.w_handgun__tsunami_nue__mag_stdr
+      itemPartList: []
+    - $type: gamedataSlotItemPartPreset_Record
+      slot: AttachmentSlots.Power_Handgun_WeaponMod1_Collectible
+      itemPartList: []
+    - $type: gamedataSlotItemPartPreset_Record
+      slot: AttachmentSlots.Power_Handgun_WeaponMod2_Collectible
+      itemPartList: []
+    - Items.TD_IconicPartPreset
+
+# Local blueprint: two native Common-unlocked weapon-mod slots, no scope/muzzle.
+# The hidden iconic attachment remains independent of these ordinary mod slots.
+Items.TD_DefyTwoModBlueprint:
+  $type: gamedataItemBlueprint_Record
+  rootElement:
+    $type: gamedataItemBlueprintElement_Record
+    slot: AttachmentSlots.Receiver
+    childElements:
+      - Items.Power_Collectible_Handgun_WeaponMod1Element
+      - Items.Power_Collectible_Handgun_WeaponMod2Element
+      - Items.IconicRangedWeaponModElement
+      - $type: gamedataItemBlueprintElement_Record
+        slot: AttachmentSlots.Magazine
+        childElements: []
+      - $type: gamedataItemBlueprintElement_Record
+        slot: AttachmentSlots.MagazineEmpty
+        childElements: []
+      - $type: gamedataItemBlueprintElement_Record
+        slot: AttachmentSlots.Barrel
+        childElements: []
+
+Items.TD_defy_rcv:
+  $base: Items.w_handgun__tsunami_nue__rcv1
+  appearanceName: defy
+  appearanceResourceName: td_defy_rcv
+
+Items.TD_defy_base:
+  $base: Items.w_handgun__tsunami_nue__base1
+  appearanceName: defy
+  appearanceResourceName: td_defy_base
+
+Items.TD_defy_mag_std:
+  $base: Items.w_handgun__tsunami_nue__mag_std
+  appearanceName: defy
+  appearanceResourceName: td_defy_mag_std
+
+Items.TD_defy_mag_stdr:
+  $base: Items.w_handgun__tsunami_nue__mag_stdr
+  appearanceName: defy
+  appearanceResourceName: td_defy_mag_stdr
+
+# Dedicated iconic tooltip via the native hidden iconic-mod attachment slot.
+# Crimestopper's native iconic stats and ranged-hit effects replace Pride's passive.
+# Only the iconic mod/ability is cloned; the weapon remains a Power handgun.
+Items.TD_IconicPartPreset:
+  $type: gamedataSlotItemPartPreset_Record
+  slot: AttachmentSlots.IconicWeaponModLegendary
+  itemPartPreset: Items.TD_IconicMod
+  itemPartList: []
+
+Items.TD_IconicMod:
+  $base: Items.KappaGeorgeWeaponMod
+  OnAttach: [Items.TD_IconicAbility]
+
+# TD_RemoveDrawCrit filters out the native draw-crit effect after YAML import.
+Items.TD_IconicAbility:
+  $base: Items.KappaGeorgeWeaponModAbility
+  UIData:
+    $type: gamedataGameplayLogicPackageUIData_Record
+    iconPath: ability_offensive
+    localizedDescription: LocKey#td_iconic_description
+
+# Preserve the native iconic upgrade curve, without generation-level rolls.
+# WasItemUpgraded is the native 0..10 tier index used by upgrade material costs.
+# Do not clamp this stat: the crafting system must be able to increment it.
+Items.TD_IconicTierProgression:
+  $base: Items.IconicQualityRandomization
+  statModifiers:
+    - $type: gamedataCurveStatModifier_Record
+      statType: BaseStats.Quality
+      modifierType: Additive
+      id: quality_curves
+      column: iconic_upgrades_amount_to_quality
+      refStat: BaseStats.WasItemUpgraded
+
+# Same-grade Pride damage multiplied by 1.10; the old flat +30 is removed.
+# Multiplicative scaling preserves the intended +10% through iconic upgrades.
+Items.TD_PrideDamageBoost:
+  $type: gamedataStatModifierGroup_Record
+  statModifiers:
+    - $type: gamedataConstantStatModifier_Record
+      statType: BaseStats.DamagePerHit
+      modifierType: Multiplier
+      value: 1.10
+
+UIIcon.TD_Defy:
+  $type: gamedataUIIcon_Record
+  atlasResourcePath: base\treason_defy\icons\treason_defy.inkatlas
+  atlasPartName: defy

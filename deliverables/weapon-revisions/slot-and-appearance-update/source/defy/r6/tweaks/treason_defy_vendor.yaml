@@ -1,0 +1,18 @@
+# Single-purchase Defy stock; preserve the existing purchase fact.
+Prereqs.TD_DefyNotPurchased:
+  $base: Prereqs.FactValuePrereq
+  comparisonType: LessOrEqual
+  fact: td_defy_purchased
+  value: 0
+
+Vendors.TD_DefyStock:
+  $type: gamedataVendorItem_Record
+  item: Items.Preset_Nue_Defy
+  forceQuality: Common
+  quantity: [Vendors.Always_Present]
+  generationPrereqs: [Prereqs.TD_DefyNotPurchased]
+  availabilityPrereq: Prereqs.TD_DefyNotPurchased
+
+Vendors.wat_lch_gunsmith_01:
+  itemStock:
+    - !append-once Vendors.TD_DefyStock

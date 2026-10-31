@@ -1,0 +1,189 @@
+{
+  "scope": "Read-only original-flow trace; no MOD, old ZIP or Git change.",
+  "script_source": {
+    "repository": "https://codeberg.org/adamsmasher/cyberpunk",
+    "commit": "17c62d000310f8938beb9593b3892c6c4febeffb",
+    "version_provenance": "Community decompilation commit labelled 2.5; not dump of user installation.",
+    "files": {
+      "cyberpunk/player/psm/timeDilationTransitions.swift": {
+        "sha256": "36e0f0ab0f84396d85b45d6b2c69a3de048f4ddc061e70fda9b076651a1b793b",
+        "url": "https://codeberg.org/adamsmasher/cyberpunk/src/commit/17c62d000310f8938beb9593b3892c6c4febeffb/cyberpunk/player/psm/timeDilationTransitions.swift"
+      },
+      "cyberpunk/player/player.swift": {
+        "sha256": "cc510aff570e5f3a17f3ee436b0225355c57af139aee3516ddf1c30729958ec0",
+        "url": "https://codeberg.org/adamsmasher/cyberpunk/src/commit/17c62d000310f8938beb9593b3892c6c4febeffb/cyberpunk/player/player.swift"
+      },
+      "cyberpunk/timeDilation/timeDilationHelper.swift": {
+        "sha256": "ce02ce806a8cc7042a2601049b4fb88f1de84d78de270f86be79d30b89456164",
+        "url": "https://codeberg.org/adamsmasher/cyberpunk/src/commit/17c62d000310f8938beb9593b3892c6c4febeffb/cyberpunk/timeDilation/timeDilationHelper.swift"
+      },
+      "orphans.swift": {
+        "sha256": "1a8e4644277b26363af7a1bde6fd159fa965607b2fe70d48df0e961283325afe",
+        "url": "https://codeberg.org/adamsmasher/cyberpunk/src/commit/17c62d000310f8938beb9593b3892c6c4febeffb/orphans.swift"
+      }
+    }
+  },
+  "tweak_source": {
+    "repository": "https://github.com/CDPR-Modding-Documentation/Cyberpunk-Tweaks",
+    "commit": "09a0a119c9614a76aecf71200b70913e79c4d574",
+    "version_provenance": "README only says Tweak file source for Cyberpunk 2077; no explicit game 2.5 provenance established. Organization name is not a claim of CDPR official authorship.",
+    "files": {
+      "tweaks/base/gameplay/static_data/player_state_machine/timedilation/statemachine_timedilation.tweak": {
+        "sha256": "c32be89375d6c8c4af3c19d575f5ca17b11fc68e132425fb68c9fa0c1b76e006",
+        "url": "https://github.com/CDPR-Modding-Documentation/Cyberpunk-Tweaks/blob/09a0a119c9614a76aecf71200b70913e79c4d574/tweaks/base/gameplay/static_data/player_state_machine/timedilation/statemachine_timedilation.tweak"
+      },
+      "tweaks/base/gameplay/static_data/database/status_effect/sandevistan.tweak": {
+        "sha256": "69064f500ea0c5375c4e7f5010143d0d3ec6d7576bd9eddbcb93c84c5013ff46",
+        "url": "https://github.com/CDPR-Modding-Documentation/Cyberpunk-Tweaks/blob/09a0a119c9614a76aecf71200b70913e79c4d574/tweaks/base/gameplay/static_data/database/status_effect/sandevistan.tweak"
+      },
+      "tweaks/base/gameplay/static_data/database/status_effect/kerenzikov.tweak": {
+        "sha256": "d668c9d0f9f75f1ec67a431c34040868b78f61e2917336a8b6bcdb46532c1ec9",
+        "url": "https://github.com/CDPR-Modding-Documentation/Cyberpunk-Tweaks/blob/09a0a119c9614a76aecf71200b70913e79c4d574/tweaks/base/gameplay/static_data/database/status_effect/kerenzikov.tweak"
+      },
+      "tweaks/base/gameplay/static_data/database/status_effect/time_dilation.tweak": {
+        "sha256": "02e9c34684aac84afc8de3bdb6c28d9691fa2ca8463a817b7ce36a7defedabbd",
+        "url": "https://github.com/CDPR-Modding-Documentation/Cyberpunk-Tweaks/blob/09a0a119c9614a76aecf71200b70913e79c4d574/tweaks/base/gameplay/static_data/database/status_effect/time_dilation.tweak"
+      }
+    }
+  },
+  "script_findings": [
+    {
+      "path": "cyberpunk/player/psm/timeDilationTransitions.swift",
+      "lines": [
+        78,
+        115
+      ],
+      "summary": "TimeDilationEventsTransitions delegates activation to native TimeSystem.SetTimeDilation and local-player dilation; unsetting uses requested ease-out or None. Cleanup event may be queued immediately or delayed 1 second. No named VFX event or depot asset is provided here."
+    },
+    {
+      "path": "cyberpunk/player/psm/timeDilationTransitions.swift",
+      "lines": [
+        196,
+        210
+      ],
+      "summary": "Sandevistan entry sets PSM TimeDilation=1, camera time-dilation curve Sandevistan, native global reason sandevistan; it clears competing kereznikov or existing sandevistan as shown. No StartEffectEvent call."
+    },
+    {
+      "path": "cyberpunk/player/psm/timeDilationTransitions.swift",
+      "lines": [
+        213,
+        231
+      ],
+      "summary": "Forced exit, normal exit and photomode exit use native SandevistanEaseOut; photomode requests immediate cleanup. Normal exit updates timestamp/blackboard and removes Sandevistan-type statuses."
+    },
+    {
+      "path": "cyberpunk/player/psm/timeDilationTransitions.swift",
+      "lines": [
+        234,
+        240
+      ],
+      "summary": "Native time dilation is reissued if the time-scale stat changes; manually starting replacement FX only on Bool activation is not proof of equivalent native lifecycle."
+    },
+    {
+      "path": "cyberpunk/player/psm/timeDilationTransitions.swift",
+      "lines": [
+        366,
+        410
+      ],
+      "summary": "Kerenzikov uses separate kereznikov reason, camera curve Kerenzikov and slide/dodge ease-in, with KerenzikovEaseOut cleanup and separate status. The native key intentionally uses spelling kereznikov."
+    },
+    {
+      "path": "cyberpunk/player/player.swift",
+      "lines": [
+        3923,
+        3935
+      ],
+      "summary": "Player cleanup again calls native UnsetTimeDilation and local-player cleanup. IsRunning becoming false does not by itself prove all visual fade/exit work is finished."
+    },
+    {
+      "path": "orphans.swift",
+      "lines": [
+        23955,
+        23983
+      ],
+      "summary": "TimeSystem Set/Unset methods are native declarations; actual VFX dispatch/renderer lifecycle is not available as a script method body."
+    }
+  ],
+  "tweak_findings": [
+    {
+      "path": "tweaks/base/gameplay/static_data/player_state_machine/timedilation/statemachine_timedilation.tweak",
+      "lines": [
+        69,
+        78
+      ],
+      "summary": "The visible accepted reasons contain sandevistan for Sandy and kereznikov for Kerenzikov. The record contains no .effect/.particle/material/LUT paths or track inventory."
+    },
+    {
+      "path": "tweaks/base/gameplay/static_data/database/status_effect/sandevistan.tweak",
+      "lines": [
+        112,
+        249
+      ],
+      "summary": "Player Sandevistan and cooldowned player variant definitions shown here do not enumerate a complete player screen effect asset graph."
+    },
+    {
+      "path": "tweaks/base/gameplay/static_data/database/status_effect/time_dilation.tweak",
+      "lines": [
+        4,
+        12
+      ],
+      "summary": "TimeDilationStatusEffect parent defines tags/time-affect flags, not a screen-resource graph."
+    },
+    {
+      "path": "tweaks/base/gameplay/static_data/database/status_effect/kerenzikov.tweak",
+      "lines": [
+        4,
+        51
+      ],
+      "summary": "Kerenzikov player status config supplies gameplay data but not a complete screen-resource graph."
+    }
+  ],
+  "visualfix_1_0_0_fidelity_gaps": [
+    {
+      "path": "source/ChronosLensFX.reds",
+      "lines": [
+        92,
+        112
+      ],
+      "summary": "Starts three private third-party-derived replacements and hard-stops selected native instances; cannot demonstrate preservation of all native tracks."
+    },
+    {
+      "path": "source/ChronosLensFX.reds",
+      "lines": [
+        101,
+        105
+      ],
+      "summary": "BreakEffectLoopEvent followed immediately by StopEffectEvent may cut a resource exit/loop-break tail. This is not proven equivalent to native ease-out/cleanup."
+    },
+    {
+      "path": "source/modules/state.lua",
+      "lines": [
+        271,
+        284
+      ],
+      "summary": "Requests end when strict activity becomes false, before proving native fade/exit completion; all replacements start together on Lua observation rather than native per-track triggers."
+    },
+    {
+      "path": "resources/RESOURCE_ANALYSIS.md",
+      "summary": "The ~0.76-second flash and its original third-party timing do not establish vanilla 2.5 startup timing; third-party resource names do not establish original provenance."
+    }
+  ],
+  "resource_paths": {
+    "confirmed_from_original_game_2_5_assets": [],
+    "third_party_candidate_only": [
+      "base\\fx\\player\\time_dilation_vfx.effect"
+    ],
+    "explicit_warning": "This candidate path is present in the supplied third-party archive; its bytes and graph cannot be labelled vanilla. Actual installed vanilla archive must establish path/version and reference graph."
+  },
+  "required_input": [
+    "Original, unmodified 2.5 binary effect resource(s) actually referenced by the native player time-dilation FX component/system, exported from clean game archives (not from mod/archive overrides).",
+    "Their full dependency graph: referenced particle/material/curve/LUT/texture resources as present, preserving depot paths and embedded/external buffer data. Do not invent a fixed dependency list before inspecting the actual effect imports.",
+    "Native descriptor/event mapping or relevant player entity/component resource if needed to resolve which startup/loop/exit resources are selected. Exact entity path is not established by the available script/config sources.",
+    "Game build and source archive metadata/hashes so private clone comparison can demonstrate only intended color payload/track changes."
+  ],
+  "limits": [
+    "No original vanilla binary .effect, particle, material, LUT or player entity was obtained by this trace.",
+    "No full original visual track list can be certified from public script/Tweak sources alone.",
+    "No REDscript compile, game resource load, native dispatch cache behavior, shader output or GPU rendering validated."
+  ]
+}

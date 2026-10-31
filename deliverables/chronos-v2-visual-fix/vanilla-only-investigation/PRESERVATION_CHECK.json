@@ -1,0 +1,12 @@
+{
+  "original_release_commit": "4736f89eacbfb62462a19b1b9b05709c6ce8a15f",
+  "old_release_sha256": {
+    "CHRONOS_V2_VisualFix_1.0.0_FULL.zip": "bb905ad7a7e45840acde3ceaa212071b3956fa4ce8f0c079fd56707764becf89",
+    "CHRONOS_V2_VisualFix_1.0.0_Source.zip": "d77810eac6e5124431d64caea379d62f1495c8518362517c52ead9f77ace94fd"
+  },
+  "existing_1_0_0_files_checked": 57,
+  "existing_1_0_0_files_modified": false,
+  "new_full_generated": false,
+  "genuine_vanilla_tracks_modified": 0,
+  "game_compile_or_render_tested": false
+}

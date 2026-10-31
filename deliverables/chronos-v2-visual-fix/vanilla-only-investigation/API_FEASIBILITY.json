@@ -1,0 +1,618 @@
+{
+  "task": "Exact vanilla time-dilation visuals except blue filter, scoped to CHRONOS; feasibility only",
+  "codeware": {
+    "repository": "https://github.com/psiberx/cp2077-codeware",
+    "commit": "decce71323d6f6183cf78143882032a3c70aac9e",
+    "clone_script": "scripts/Scripting/ISerializable.reds:10-11",
+    "clone_implementation": "src/App/Scripting/ISerializableEx.hpp:24-28",
+    "clone_limits": "Real Clone API calls native engine function; public source does not establish complete deep-copy semantics for worldEffect subgraphs or bind the result to a resource path/token.",
+    "resource_depot": "src/App/Depot/ResourceDepot.hpp:33-59",
+    "token": "src/App/Depot/ResourceToken.hpp",
+    "resource_reference": "scripts/Depot/ResourceReference.reds",
+    "version_scope": "Pinned current upstream source dated 2026-10-29; method existence is not evidence that the user has this Codeware version installed or that it has been run in this task.",
+    "verified_file_sha256": {
+      "scripts/Scripting/ISerializable.reds": "54145a2f754660fdebfdb837854d89598f682ace257de5d4426d202091f915be"
+    }
+  },
+  "archivexl": {
+    "repository": "https://github.com/psiberx/cp2077-archive-xl",
+    "commit": "998f7735593e8d65a2d856369764328777714ccf",
+    "copy_configuration": "src/App/Extensions/ResourceLink/Config.cpp:53-92",
+    "copy_loader_semantics": "src/App/Extensions/ResourceLink/Extension.cpp:208-234",
+    "assessment": "resource.copy is a real virtual-copy facility: loader request path is preserved for copies while depot byte request resolves to source. resource.link instead rewrites loader path and should not be used as evidence of an independent cache object. Separate private identity is strongly supported by implementation but game runtime object identity and mutation isolation still require tests.",
+    "version_scope": "Pinned current upstream source dated 2026-10-30; copy/link code is confirmed in source, not a runtime test in the user installation.",
+    "scope_warning": "resource.scope is a named resource-path list, not an automatic per-cyberware/player-instance filter.",
+    "copy_example_not_a_mod_implementation": {
+      "resource": {
+        "copy": {
+          "base\\fx\\player\\time_dilation_vfx.effect": "ch13\\vanilla\\time_dilation_vfx.effect"
+        }
+      }
+    },
+    "verified_file_sha256": {
+      "src/App/Extensions/ResourceLink/Config.cpp": "d916424a4fdba881734821847c8c4f6d027ff66464276224d28cc63ff8eb1ef2",
+      "src/App/Extensions/ResourceLink/Extension.cpp": "713306080a1746c872c3fad4f7a5b654062b2e8aa41fbbeb5d122ca9d1c9368a"
+    }
+  },
+  "native_api": {
+    "repository": "https://github.com/rayshader/cp2077-nativedb",
+    "commit": "8d418f04128ce43a4f70a47689895bb0e7ecda7b",
+    "game_version": "2.5",
+    "raw_entries": {
+      "CResource": {
+        "a": "ISerializable",
+        "b": "CResource",
+        "d": 12,
+        "e": [
+          {
+            "a": {
+              "b": "ECookingPlatform"
+            },
+            "b": "cookingPlatform",
+            "d": 56
+          }
+        ]
+      },
+      "ISerializable": {
+        "b": "ISerializable",
+        "d": 12
+      },
+      "effectEffectParameterEvaluatorFloat": {
+        "b": "effectEffectParameterEvaluatorFloat",
+        "d": 8,
+        "g": true,
+        "e": [
+          {
+            "a": {
+              "a": 26,
+              "c": {
+                "b": "IEvaluatorFloat"
+              }
+            },
+            "b": "evaluator"
+          },
+          {
+            "a": {
+              "a": 14
+            },
+            "b": "inputParameterOverride",
+            "d": 16
+          },
+          {
+            "a": {
+              "a": 1
+            },
+            "b": "inputParameterIsPostMultiplier",
+            "d": 24
+          }
+        ]
+      },
+      "effectTrackItemColorGrade": {
+        "a": "effectTrackItem",
+        "b": "effectTrackItemColorGrade",
+        "d": 8,
+        "e": [
+          {
+            "a": {
+              "b": "effectEffectParameterEvaluatorFloat"
+            },
+            "b": "contrast",
+            "d": 104
+          },
+          {
+            "a": {
+              "b": "effectEffectParameterEvaluatorFloat"
+            },
+            "b": "saturate",
+            "d": 136
+          },
+          {
+            "a": {
+              "b": "effectEffectParameterEvaluatorFloat"
+            },
+            "b": "brightness",
+            "d": 168
+          },
+          {
+            "a": {
+              "b": "effectEffectParameterEvaluatorFloat"
+            },
+            "b": "lutWeight",
+            "d": 200
+          },
+          {
+            "a": {
+              "b": "ColorGradingLutParams"
+            },
+            "b": "lutParams",
+            "d": 232
+          },
+          {
+            "a": {
+              "b": "ColorGradingLutParams"
+            },
+            "b": "lutParamsHdr",
+            "d": 264
+          },
+          {
+            "a": {
+              "a": 1
+            },
+            "b": "blendWithBaseLut",
+            "d": 296
+          },
+          {
+            "a": {
+              "a": 31,
+              "c": {
+                "b": "ERenderObjectType"
+              }
+            },
+            "b": "mask",
+            "d": 80
+          }
+        ]
+      },
+      "effectTrackItemColorGradeV2": {
+        "a": "effectTrackItem",
+        "b": "effectTrackItemColorGradeV2",
+        "d": 8,
+        "e": [
+          {
+            "a": {
+              "b": "effectEffectParameterEvaluatorFloat"
+            },
+            "b": "contrast",
+            "d": 72
+          },
+          {
+            "a": {
+              "b": "effectEffectParameterEvaluatorFloat"
+            },
+            "b": "contrastPivot",
+            "d": 104
+          },
+          {
+            "a": {
+              "b": "effectEffectParameterEvaluatorFloat"
+            },
+            "b": "saturation",
+            "d": 136
+          },
+          {
+            "a": {
+              "b": "effectEffectParameterEvaluatorFloat"
+            },
+            "b": "hue",
+            "d": 168
+          },
+          {
+            "a": {
+              "b": "effectEffectParameterEvaluatorFloat"
+            },
+            "b": "brightness",
+            "d": 200
+          },
+          {
+            "a": {
+              "b": "effectEffectParameterEvaluatorFloat"
+            },
+            "b": "lowRange",
+            "d": 232
+          },
+          {
+            "a": {
+              "b": "effectEffectParameterEvaluatorFloat"
+            },
+            "b": "highRange",
+            "d": 264
+          },
+          {
+            "a": {
+              "b": "effectEffectParameterEvaluatorVector"
+            },
+            "b": "lift",
+            "d": 296
+          },
+          {
+            "a": {
+              "b": "effectEffectParameterEvaluatorVector"
+            },
+            "b": "gamma",
+            "d": 320
+          },
+          {
+            "a": {
+              "b": "effectEffectParameterEvaluatorVector"
+            },
+            "b": "gain",
+            "d": 344
+          },
+          {
+            "a": {
+              "b": "effectEffectParameterEvaluatorVector"
+            },
+            "b": "offset",
+            "d": 368
+          },
+          {
+            "a": {
+              "b": "effectEffectParameterEvaluatorVector"
+            },
+            "b": "shadow",
+            "d": 392
+          },
+          {
+            "a": {
+              "b": "effectEffectParameterEvaluatorVector"
+            },
+            "b": "midtone",
+            "d": 416
+          },
+          {
+            "a": {
+              "b": "effectEffectParameterEvaluatorVector"
+            },
+            "b": "highlight",
+            "d": 440
+          }
+        ]
+      },
+      "entEffectDesc": {
+        "a": "ISerializable",
+        "b": "entEffectDesc",
+        "d": 8,
+        "e": [
+          {
+            "a": {
+              "a": 22
+            },
+            "b": "id",
+            "d": 56
+          },
+          {
+            "a": {
+              "a": 14
+            },
+            "b": "effectName",
+            "d": 48
+          },
+          {
+            "a": {
+              "a": 30,
+              "c": {
+                "b": "worldEffect"
+              }
+            },
+            "b": "effect",
+            "d": 64
+          },
+          {
+            "a": {
+              "b": "worldCompiledEffectInfo"
+            },
+            "b": "compiledEffectInfo",
+            "d": 72
+          },
+          {
+            "a": {
+              "a": 14
+            },
+            "b": "autoSpawnTag",
+            "d": 176
+          },
+          {
+            "a": {
+              "a": 1
+            },
+            "b": "isAutoSpawn",
+            "d": 184
+          },
+          {
+            "a": {
+              "a": 3
+            },
+            "b": "randomWeight",
+            "d": 185
+          }
+        ]
+      },
+      "gameFxInstance": {
+        "a": "IScriptable",
+        "b": "gameFxInstance",
+        "c": "FxInstance",
+        "d": 24,
+        "f": [
+          {
+            "a": "AttachToComponent",
+            "d": 4,
+            "e": [
+              {
+                "a": {
+                  "a": 27,
+                  "c": {
+                    "b": "entEntity"
+                  }
+                },
+                "b": "entity"
+              },
+              {
+                "a": {
+                  "b": "entAttachmentTarget"
+                },
+                "b": "targetType"
+              },
+              {
+                "a": {
+                  "a": 14
+                },
+                "b": "componentName"
+              },
+              {
+                "a": {
+                  "b": "WorldTransform"
+                },
+                "b": "localTransform",
+                "c": 4
+              }
+            ]
+          },
+          {
+            "a": "AttachToSlot",
+            "d": 4,
+            "e": [
+              {
+                "a": {
+                  "a": 27,
+                  "c": {
+                    "b": "entEntity"
+                  }
+                },
+                "b": "entity"
+              },
+              {
+                "a": {
+                  "b": "entAttachmentTarget"
+                },
+                "b": "targetType"
+              },
+              {
+                "a": {
+                  "a": 14
+                },
+                "b": "slotName"
+              },
+              {
+                "a": {
+                  "b": "WorldTransform"
+                },
+                "b": "localTransform",
+                "c": 4
+              }
+            ]
+          },
+          {
+            "a": "BreakLoop",
+            "d": 4
+          },
+          {
+            "a": "IsValid",
+            "c": {
+              "a": 1
+            },
+            "d": 4
+          },
+          {
+            "a": "Kill",
+            "d": 4
+          },
+          {
+            "a": "SetBlackboardValue",
+            "d": 4,
+            "e": [
+              {
+                "a": {
+                  "a": 14
+                },
+                "b": "parameterName"
+              },
+              {
+                "a": {
+                  "a": 10
+                },
+                "b": "clampedValue"
+              }
+            ]
+          },
+          {
+            "a": "UpdateTargetPosition",
+            "d": 4,
+            "e": [
+              {
+                "a": {
+                  "b": "WorldPosition"
+                },
+                "b": "position"
+              }
+            ]
+          },
+          {
+            "a": "UpdateTransform",
+            "d": 4,
+            "e": [
+              {
+                "a": {
+                  "b": "WorldTransform"
+                },
+                "b": "transform"
+              }
+            ]
+          }
+        ]
+      },
+      "gameFxResource": {
+        "b": "gameFxResource",
+        "c": "FxResource",
+        "d": 24,
+        "g": true,
+        "e": [
+          {
+            "a": {
+              "a": 30,
+              "c": {
+                "b": "worldEffect"
+              }
+            },
+            "b": "effect"
+          }
+        ],
+        "f": [
+          {
+            "a": "IsValid",
+            "c": {
+              "a": 1
+            },
+            "d": 12,
+            "e": [
+              {
+                "a": {
+                  "b": "gameFxResource"
+                },
+                "b": "self"
+              }
+            ]
+          }
+        ]
+      },
+      "worldEffect": {
+        "a": "resStreamedResource",
+        "b": "worldEffect",
+        "d": 8,
+        "e": [
+          {
+            "a": {
+              "a": 14
+            },
+            "b": "name",
+            "d": 64
+          },
+          {
+            "a": {
+              "a": 10
+            },
+            "b": "length",
+            "d": 72
+          },
+          {
+            "a": {
+              "a": 31,
+              "c": {
+                "a": 14
+              }
+            },
+            "b": "inputParameterNames",
+            "d": 128
+          },
+          {
+            "a": {
+              "a": 26,
+              "c": {
+                "b": "effectTrackGroup"
+              }
+            },
+            "b": "trackRoot",
+            "d": 80
+          },
+          {
+            "a": {
+              "a": 31,
+              "c": {
+                "a": 26,
+                "c": {
+                  "b": "effectTrackItem"
+                }
+              }
+            },
+            "b": "events",
+            "d": 96
+          },
+          {
+            "a": {
+              "a": 31,
+              "c": {
+                "b": "effectLoopData"
+              }
+            },
+            "b": "effectLoops",
+            "d": 112
+          }
+        ]
+      },
+      "worldEffectBlackboard": {
+        "a": "IScriptable",
+        "b": "worldEffectBlackboard",
+        "d": 24,
+        "f": [
+          {
+            "a": "SetValue",
+            "d": 4,
+            "e": [
+              {
+                "a": {
+                  "a": 14
+                },
+                "b": "parameterName"
+              },
+              {
+                "a": {
+                  "a": 10
+                },
+                "b": "clampedValue"
+              }
+            ]
+          },
+          {
+            "a": "SetValueUnclamped",
+            "d": 4,
+            "e": [
+              {
+                "a": {
+                  "a": 14
+                },
+                "b": "parameterName"
+              },
+              {
+                "a": {
+                  "a": 10
+                },
+                "b": "clampedValue"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "findings": [
+      "FxInstance has no exposed disable-one-track method; it can Kill/BreakLoop/SetBlackboardValue etc.",
+      "GameObjectEffectHelper.StartEffectEvent returns Void, not an exposed FxInstance handle.",
+      "ColorGrade node fields belong to worldEffect resource graph, not an exposed private per-instance track controller.",
+      "lutWeight has evaluator/inputParameterOverride fields; setting a guessed blackboard key cannot guarantee only LUT changes or that original asset uses that key."
+    ]
+  },
+  "hard_limits": [
+    "Actual unmodified 2.5 effect resources and dependency graphs have not been supplied to this subtask. Third-party modified assets are not vanilla evidence.",
+    "A ColorGrade track may contain contrast/saturation/brightness alongside a LUT; deleting the entire track can remove more than the blue filter.",
+    "ColorGradeV2 does not expose the same LUT fields as ColorGrade; identifying the blue contribution requires actual resource data.",
+    "ArchiveXL copy reads whichever source resource wins the depot; installed third-party overrides must be excluded before calling it a vanilla copy.",
+    "Preserving native enter/loop/exit timing requires routing original event requests/transitions, not a polling-driven substitute playback.",
+    "No game 2.5 compile, resource instance identity, native lookup or GPU render tests were run."
+  ],
+  "recommendation": "Do not modify shared depot resource. Investigate a private resource.copy from verified vanilla paths, inspect those complete resources, neutralize only a positively identified blue LUT contribution, and route original CHRONOS native event lifecycle to private counterparts. Until the actual graph and routing are known, do not publish a FULL ZIP claiming exact vanilla parity.",
+  "runtime_validation_required": [
+    "Verify private copy token path/resource identity and all mutable graph nodes are isolated from original before editing.",
+    "Inspect exact user-2.5 vanilla ColorGrade/material inputs; preserve contrast/saturation/brightness and other non-blue parameters.",
+    "Do not infer independence just from a changed resource.path field or Clone returning a different top-level handle.",
+    "Ensure native enter/persistent/exit event routing and blackboard/lifecycle context are preserved; do not Stop/replace with polling playback.",
+    "Validate renderer output and other Sandy/Kerenzikov before claiming complete parity."
+  ]
+}

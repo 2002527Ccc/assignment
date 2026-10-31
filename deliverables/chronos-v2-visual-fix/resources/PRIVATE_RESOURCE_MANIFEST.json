@@ -1,0 +1,418 @@
+{
+  "format_source": {
+    "repository": "https://github.com/WolvenKit/WolvenKit",
+    "commit": "6ab5da88c009b99e653ce87be5251a9c5bd15330"
+  },
+  "original_archive_sha256": "362794e9be5a5b78cdadfc7fcb4936d83f856b2bc1840fb53ff280c7f728a2f8",
+  "original_index_crc64_recalculated": "e90496dc756b7e92",
+  "game_load_or_render_verified": false,
+  "files": [
+    {
+      "path": "ch13\\fx\\player\\time_dilation_vfx_outlines.effect",
+      "fnv1a64": "f1fbf0d7128198af",
+      "canonical_original_size": 1030,
+      "private_size": 1030,
+      "canonical_original_sha256": "58c83e9baa541028bd49530c5d4ab42ea81deb982a2f24f7c10c179505ecaf0c",
+      "private_sha256": "c35328e7815b86d7ab9e03ceff4ff812d7ed4567365c0e30b1c74cc70bd0e59f",
+      "modified": true,
+      "material_color_modifications": [],
+      "exports": [
+        "worldEffect",
+        "effectTrackItemParticles",
+        "CEvaluatorFloatConst",
+        "CEvaluatorFloatConst",
+        "CEvaluatorFloatConst"
+      ],
+      "imports": [
+        {
+          "path": "ch13\\fx\\player\\time_dilation_vfx_outlines.particle",
+          "class_index": 0,
+          "flags": 0
+        }
+      ],
+      "buffers": [],
+      "root_properties": {
+        "cookingPlatform": {
+          "type": "ECookingPlatform",
+          "raw_hex": "0400"
+        },
+        "events": {
+          "type": "array:handle:effectTrackItem",
+          "raw_hex": "0100000002000000"
+        },
+        "effectLoops": {
+          "type": "array:effectLoopData",
+          "raw_hex": "010000000015001600080000000000803f0000"
+        }
+      },
+      "particle_event_properties": {
+        "ruid": {
+          "type": "CRUID",
+          "raw_hex": "0c9d93e2b7f8c0ab"
+        },
+        "particleSystem": {
+          "type": "rRef:CParticleSystem",
+          "raw_hex": "0100"
+        },
+        "emissionScale": {
+          "type": "effectEffectParameterEvaluatorFloat",
+          "raw_hex": "000e000f0008000000030000000000"
+        },
+        "alpha": {
+          "type": "effectEffectParameterEvaluatorFloat",
+          "raw_hex": "000e000f0008000000040000000000"
+        },
+        "size": {
+          "type": "effectEffectParameterEvaluatorFloat",
+          "raw_hex": "000e000f0008000000050000000000"
+        }
+      }
+    },
+    {
+      "path": "ch13\\fx\\player\\time_dilation_vfx_outlines.particle",
+      "fnv1a64": "d87ba6a7f3bd42dc",
+      "canonical_original_size": 3416,
+      "private_size": 3416,
+      "canonical_original_sha256": "648976011478ac73f19719984a62ec1cda47f8ede477a6d8347461a1592fe10a",
+      "private_sha256": "648976011478ac73f19719984a62ec1cda47f8ede477a6d8347461a1592fe10a",
+      "modified": false,
+      "material_color_modifications": [],
+      "exports": [
+        "CParticleSystem",
+        "CParticleEmitter",
+        "CMaterialInstance",
+        "CParticleDrawerScreen",
+        "rendRenderParticleBlob"
+      ],
+      "imports": [
+        {
+          "path": "engine\\materials\\particles_generic.remt",
+          "class_index": 0,
+          "flags": 0
+        },
+        {
+          "path": "base\\fx\\shaders\\drugged_sobel.mt",
+          "class_index": 0,
+          "flags": 0
+        }
+      ],
+      "buffers": [
+        {
+          "offset": 2958,
+          "stored": 458,
+          "unpacked": 460,
+          "crc32": 4037773116
+        }
+      ],
+      "root_properties": {
+        "cookingPlatform": {
+          "type": "ECookingPlatform",
+          "raw_hex": "0400"
+        },
+        "emitters": {
+          "type": "array:handle:CParticleEmitter",
+          "raw_hex": "0100000002000000"
+        }
+      },
+      "material_colors": [
+        {
+          "export_index": 2,
+          "export_class": "CMaterialInstance",
+          "parameter": "BrightColor",
+          "parameter_type": "Color",
+          "payload_offset": 2462,
+          "channel_offsets": {
+            "Red": 2471,
+            "Green": 2480,
+            "Blue": 2489,
+            "Alpha": 2498
+          },
+          "channels": {
+            "Red": 127,
+            "Green": 63,
+            "Blue": 0,
+            "Alpha": 255
+          }
+        },
+        {
+          "export_index": 2,
+          "export_class": "CMaterialInstance",
+          "parameter": "DarkColor",
+          "parameter_type": "Color",
+          "payload_offset": 2521,
+          "channel_offsets": {
+            "Red": 2530,
+            "Green": 2539,
+            "Blue": 2548,
+            "Alpha": 2557
+          },
+          "channels": {
+            "Red": 148,
+            "Green": 124,
+            "Blue": 0,
+            "Alpha": 255
+          }
+        }
+      ]
+    },
+    {
+      "path": "ch13\\fx\\player\\time_dilation_vfx_radial_blur.effect",
+      "fnv1a64": "63246a48199475f3",
+      "canonical_original_size": 1121,
+      "private_size": 1121,
+      "canonical_original_sha256": "b67df129d823ace42727b9c38d3cfcde0dd26b4cd1c0b4a181a45ee92fb4e014",
+      "private_sha256": "b67df129d823ace42727b9c38d3cfcde0dd26b4cd1c0b4a181a45ee92fb4e014",
+      "modified": false,
+      "material_color_modifications": [],
+      "exports": [
+        "worldEffect",
+        "effectTrackItemParticles",
+        "CEvaluatorFloatConst",
+        "CEvaluatorFloatConst",
+        "CEvaluatorFloatConst"
+      ],
+      "imports": [
+        {
+          "path": "base\\fx\\camera\\splinter_buff\\radial_blur_skif.particle",
+          "class_index": 0,
+          "flags": 0
+        }
+      ],
+      "buffers": [],
+      "root_properties": {
+        "cookingPlatform": {
+          "type": "ECookingPlatform",
+          "raw_hex": "0400"
+        },
+        "length": {
+          "type": "Float",
+          "raw_hex": "c3f5a83f",
+          "value": 1.3200000524520874
+        },
+        "events": {
+          "type": "array:handle:effectTrackItem",
+          "raw_hex": "0100000002000000"
+        },
+        "effectLoops": {
+          "type": "array:effectLoopData",
+          "raw_hex": "010000000018000600080000000ad7a33e1900060008000000c3f5a83f0000"
+        }
+      },
+      "particle_event_properties": {
+        "timeBegin": {
+          "type": "Float",
+          "raw_hex": "52b89e3e",
+          "value": 0.3100000023841858
+        },
+        "ruid": {
+          "type": "CRUID",
+          "raw_hex": "a4f6c836c8efd818"
+        },
+        "particleSystem": {
+          "type": "rRef:CParticleSystem",
+          "raw_hex": "0100"
+        },
+        "emissionScale": {
+          "type": "effectEffectParameterEvaluatorFloat",
+          "raw_hex": "001100120008000000030000000000"
+        },
+        "alpha": {
+          "type": "effectEffectParameterEvaluatorFloat",
+          "raw_hex": "001100120008000000040000000000"
+        },
+        "size": {
+          "type": "effectEffectParameterEvaluatorFloat",
+          "raw_hex": "001100120008000000050000000000"
+        }
+      }
+    },
+    {
+      "path": "ch13\\fx\\player\\time_dilation_vfx_flash.effect",
+      "fnv1a64": "5c02f8a79d529126",
+      "canonical_original_size": 4703,
+      "private_size": 4703,
+      "canonical_original_sha256": "b0cbdc64378d2bd5eec392e1fbdf3f273616f27747e4cfd494b767c91791acb5",
+      "private_sha256": "5b49ab7aa7cefa3e84bfbe19ee80c0db1d60b8460be37af6b663e5fe908165c6",
+      "modified": true,
+      "material_color_modifications": [
+        {
+          "export_index": 17,
+          "export_class": "CMaterialInstance",
+          "parameter": "Color",
+          "parameter_type": "Color",
+          "payload_offset": 4241,
+          "channel_offsets": {
+            "Red": 4250,
+            "Green": 4259,
+            "Blue": 4268,
+            "Alpha": 4277
+          },
+          "channels": {
+            "Red": 0,
+            "Green": 176,
+            "Blue": 240,
+            "Alpha": 255
+          },
+          "channels_before": {
+            "Red": 0,
+            "Green": 176,
+            "Blue": 240,
+            "Alpha": 255
+          },
+          "channels_after": {
+            "Red": 143,
+            "Green": 143,
+            "Blue": 143,
+            "Alpha": 255
+          },
+          "export_crc32_before": 0,
+          "export_crc32_after": 2875742835,
+          "changed_byte_offsets_including_checksums": [
+            32,
+            33,
+            34,
+            35,
+            96,
+            97,
+            98,
+            99,
+            3344,
+            3345,
+            3346,
+            3347,
+            4250,
+            4259,
+            4268
+          ],
+          "reason": "Neutral RGB candidate only; actual shader/color rendering unverified."
+        }
+      ],
+      "exports": [
+        "worldEffect",
+        "effectTrackItemParticles",
+        "CEvaluatorFloatConst",
+        "CEvaluatorFloatCurve",
+        "CEvaluatorFloatConst",
+        "CEvaluatorFloatConst",
+        "CParticleSystem",
+        "CParticleEmitter",
+        "CParticleInitializerLifeTime",
+        "CEvaluatorFloatConst",
+        "CParticleInitializerSize",
+        "CEvaluatorVectorConst",
+        "CParticleInitializerVelocity",
+        "CEvaluatorVectorConst",
+        "CParticleModificatorAlphaOverLife",
+        "CEvaluatorFloatCurve",
+        "CParticleModificatorAlphaOverEffect",
+        "CMaterialInstance",
+        "CParticleDrawerScreen",
+        "rendRenderParticleBlob"
+      ],
+      "imports": [
+        {
+          "path": "base\\fx\\player\\p_pain\\p_pain.particle",
+          "class_index": 0,
+          "flags": 8
+        },
+        {
+          "path": "base\\fx\\shaders\\zoom.mt",
+          "class_index": 0,
+          "flags": 0
+        },
+        {
+          "path": "base\\fx\\shaders\\reflex_buster.mt",
+          "class_index": 0,
+          "flags": 0
+        }
+      ],
+      "buffers": [
+        {
+          "offset": 4671,
+          "stored": 32,
+          "unpacked": 32,
+          "crc32": 2220842871
+        }
+      ],
+      "root_properties": {
+        "cookingPlatform": {
+          "type": "ECookingPlatform",
+          "raw_hex": "0400"
+        },
+        "length": {
+          "type": "Float",
+          "raw_hex": "5c8f423f",
+          "value": 0.7599999904632568
+        },
+        "events": {
+          "type": "array:handle:effectTrackItem",
+          "raw_hex": "0100000002000000"
+        }
+      },
+      "particle_event_properties": {
+        "timeDuration": {
+          "type": "Float",
+          "raw_hex": "0000003f",
+          "value": 0.5
+        },
+        "ruid": {
+          "type": "CRUID",
+          "raw_hex": "00086601a45106e3"
+        },
+        "particleSystem": {
+          "type": "rRef:CParticleSystem",
+          "raw_hex": "0100"
+        },
+        "emissionScale": {
+          "type": "effectEffectParameterEvaluatorFloat",
+          "raw_hex": "001100120008000000030000000000"
+        },
+        "alpha": {
+          "type": "effectEffectParameterEvaluatorFloat",
+          "raw_hex": "001100120008000000040000000000"
+        },
+        "size": {
+          "type": "effectEffectParameterEvaluatorFloat",
+          "raw_hex": "001100120008000000050000000000"
+        },
+        "velocity": {
+          "type": "effectEffectParameterEvaluatorFloat",
+          "raw_hex": "001100120008000000060000000000"
+        }
+      },
+      "material_colors": [
+        {
+          "export_index": 17,
+          "export_class": "CMaterialInstance",
+          "parameter": "Color",
+          "parameter_type": "Color",
+          "payload_offset": 4241,
+          "channel_offsets": {
+            "Red": 4250,
+            "Green": 4259,
+            "Blue": 4268,
+            "Alpha": 4277
+          },
+          "channels": {
+            "Red": 143,
+            "Green": 143,
+            "Blue": 143,
+            "Alpha": 255
+          }
+        }
+      ]
+    }
+  ],
+  "private_archive_sha256": "9a87aef6df95013c1fbfb9b260cfabcea806b6524823ecd39972ac92d1987293",
+  "private_archive_size": 16384,
+  "private_index_crc64": "a424300e1eb5f138",
+  "validation": [
+    "Original archive index CRC64 recalculates exactly.",
+    "Original canonical CR2W header/table/buffer CRC32 values all match.",
+    "Private CR2W header/table/buffer CRC32 values all match.",
+    "Private archive index, bounds, segments, SHA1 and reconstructed bytes all match.",
+    "No original archive depot hash remains; private outlines particle dependency resolves.",
+    "No ColorGrade export in included effects; flash timing and strengths unchanged.",
+    "Flash Color parameter structurally located and changed only from RGBA(0,176,240,255) to (143,143,143,255)."
+  ]
+}

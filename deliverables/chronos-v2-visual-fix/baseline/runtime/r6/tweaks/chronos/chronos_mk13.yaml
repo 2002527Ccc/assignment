@@ -1,0 +1,119 @@
+# MILITECH MODEL 13 CHRONOS | independent TweakXL item
+# Target 2.5. V12.2c-R1 source build; game compilation NOT verified.
+Items.MilitechChronosMk13:
+  $base: Items.AdvancedSandevistanApogeePlusPlus
+  friendlyName: "MILITECH MK.13 CHRONOS"
+  displayName: LocKey#Chronos-MK13-Name
+  localizedDescription: LocKey#Chronos-MK13-Description
+  quality: Quality.LegendaryPlusPlus
+  iconPath: cw_system_sandevistanedgerunner
+  # Keep native common OS plumbing, omit Apogee-only on-kill/combat packages.
+  # All tags are mutations: TweakXL ignores assignments mixed with mutations.
+  OnEquip:
+    - !remove-all dummy
+    - !append-from Items.SandevistanBase.OnEquip
+    - !append Chronos.AbilityPackage
+    - !append Chronos.DeflectionPackage
+  OnAttach:
+    - !remove-all dummy
+    - !append-from Items.SandevistanBase.OnAttach
+  statModifiers:
+    - $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.IsItemIconic
+      value: 1.0
+    - $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.HasSandevistan
+      value: 1.0
+    # Preserve the native advanced reserve/toggle capability lost in V12.2c.
+    - $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.HasSandevistanTier3
+      value: 1.0
+    - $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.TimeDilationSandevistanDuration
+      value: 120.0
+    - $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.TimeDilationSandevistanTimeScale
+      value: 0.4
+    - $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.TimeDilationSandevistanRechargeDuration
+      value: 1.0
+    - $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.TimeDilationSandevistanCooldownBase
+      value: 1.0
+    - $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.TimeDilationSandevistanEnterCost
+      value: 0.0
+    - $type: gamedataConstantStatModifier_Record
+      modifierType: Additive
+      statType: BaseStats.SandevistanKillRechargeValue
+      value: 0.0
+  variants:
+    - Variants.Chronos101
+
+# Clone only the capacity variant, never edit vanilla.
+Variants.Chronos101:
+  $base: Variants.Humanity60Cost
+  variantPrereqs:
+    - $base: Variants.Humanity60Cost_inline0
+      statModifiers:
+        - $type: gamedataConstantStatModifier_Record
+          statType: BaseStats.GenericStatPrereqValue
+          modifierType: Additive
+          value: 101.0
+  statModifiers:
+    - $type: gamedataConstantStatModifier_Record
+      statType: BaseStats.HumanityAllocated
+      modifierType: Additive
+      value: 101.0
+
+Chronos.AbilityPackage:
+  $type: gamedataGameplayLogicPackage_Record
+  stackable: false
+  UIData: Chronos.AbilityUI
+
+Chronos.DeflectionPackage:
+  $type: gamedataGameplayLogicPackage_Record
+  stackable: false
+  effectors:
+    - Chronos.DeflectionEffector
+
+Chronos.DeflectionEffector:
+  $type: gamedataEffector_Record
+  effectorClassName: ChronosDeflectionEffector
+  prereqRecord: Chronos.RangedHitPrereq
+  removeAfterActionCall: false
+  removeAfterPrereqCheck: false
+
+# Reuse the confirmed vanilla Nano-plating Process/Damage ranged filter.
+# Clone only the prereq, NOT the Nano effector with its sprint enhancement.
+Chronos.RangedHitPrereq:
+  $base: Items.AdvancedNanoTechPlatesLegendary_inline3
+  prereqClassName: HitReceivedPrereq
+  callbackType: HitReceived
+  isSynchronous: true
+  pipelineType: Damage
+  pipelineStage: Process
+  conditions:
+    - $base: Items.AdvancedNanoTechPlatesLegendary_inline4
+      attackType: Ranged
+      invert: false
+      onlyOncePerShot: false
+    - $base: Items.AdvancedNanoTechPlatesLegendary_inline5
+      weaponType: Ranged
+      invert: false
+      onlyOncePerShot: false
+
+Chronos.AbilityUI:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedName: LocKey#Chronos-MK13-Name
+  localizedDescription: LocKey#Chronos-MK13-Description
+
+Chronos.Runtime.debug: false

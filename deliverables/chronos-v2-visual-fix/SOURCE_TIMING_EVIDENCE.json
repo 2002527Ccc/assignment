@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "source_repository": "https://codeberg.org/adamsmasher/cyberpunk",
+  "commit": "17c62d000310f8938beb9593b3892c6c4febeffb",
+  "commit_message": "2.5",
+  "commit_date": "2026-10-23T01:01:43+08:00",
+  "provenance_boundary": "Community decompilation labelled 2.5; not a dump of the user game installation and not game-runtime verification.",
+  "sources": [
+    {
+      "path": "cyberpunk/player/player.swift",
+      "sha256": "cc510aff570e5f3a17f3ee436b0225355c57af139aee3516ddf1c30729958ec0",
+      "url": "https://codeberg.org/adamsmasher/cyberpunk/src/commit/17c62d000310f8938beb9593b3892c6c4febeffb/cyberpunk/player/player.swift",
+      "evidence": [
+        {
+          "lines": [
+            1054,
+            1124
+          ],
+          "summary": "PlayerAttachedCallback has an explicit ref<GameObject> playerPuppet parameter, checks playerPuppet == this, and installs blackboard/stat/equipment/development listeners. No FX descriptor initialization appears in this method."
+        },
+        {
+          "lines": [
+            1137,
+            1204
+          ],
+          "summary": "OnGameAttached calls super.OnGameAttached at line 1145, then registers PlayerAttachedCallback at line 1203 and detached callback at line 1204. This is not evidence that the callback runs before native FX component initialization."
+        },
+        {
+          "lines": [
+            707,
+            745
+          ],
+          "summary": "Player component request/resolve callbacks delegate to super and resolve player-specific components. They do not expose fx_player effect descriptor cache initialization."
+        }
+      ]
+    },
+    {
+      "path": "core/systems/playerSystem.swift",
+      "sha256": "8f13608c55c56cefa1c5686f1bc47f4422af4bf54d87e1bf05cff0185fd4cc8e",
+      "url": "https://codeberg.org/adamsmasher/cyberpunk/src/commit/17c62d000310f8938beb9593b3892c6c4febeffb/core/systems/playerSystem.swift",
+      "evidence": [
+        {
+          "lines": [
+            12,
+            18
+          ],
+          "summary": "Player attached/detached callback registration methods are native declarations. Actual native dispatch timing and effect cache initialization are not provided."
+        }
+      ]
+    }
+  ],
+  "same_snapshot_search": {
+    "terms": [
+      "effectDescs",
+      "compiledEffectInfo",
+      "new entEffectDesc",
+      "fx_player"
+    ],
+    "exact_occurrences": 0,
+    "scope": "All extracted text files in the fixed source archive; source archive SHA256 74da4ffb501ee100173ec4a431065e15e7caf4665f4cb0ef721ab3edadfb37f2"
+  },
+  "conclusions": [
+    "Do not call PlayerAttachedCallback a guaranteed pre-FX-initialization hook.",
+    "Before/after callback observers with typed registration and readback can establish descriptor retention for a particular run, not native cache refresh or visible rendering.",
+    "No original-script dynamic effectDescs registration example was found. This does not prove such registration is unsupported.",
+    "No source evidence establishes whether manually created entEffectDesc requires a CRUID/id or compiledEffectInfo. Do not invent requirements or report native cache behavior as proven.",
+    "Resource load success, descriptor readback and successful StartEffectEvent request remain separate from rendering success."
+  ]
+}

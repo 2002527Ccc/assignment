@@ -1,0 +1,364 @@
+{
+  "source_repository": "https://github.com/rayshader/cp2077-nativedb",
+  "commit": "8d418f04128ce43a4f70a47689895bb0e7ecda7b",
+  "game_version": "2.5",
+  "classes_json_sha256": "34041a34142f871748b110a2b25cbde3670ddfb9bcfc291fef38d8867e0a11c8",
+  "raw_entries": {
+    "PlayerPuppet": {
+      "alias": null,
+      "properties": [],
+      "methods": [
+        {
+          "a": "PlayerAttachedCallback;GameObject",
+          "b": "PlayerAttachedCallback",
+          "d": 49,
+          "e": [
+            {
+              "a": {
+                "a": 26,
+                "c": {
+                  "b": "gameObject"
+                }
+              },
+              "b": "playerPuppet"
+            }
+          ]
+        }
+      ]
+    },
+    "entEffectDesc": {
+      "alias": null,
+      "properties": [
+        {
+          "a": {
+            "a": 22
+          },
+          "b": "id",
+          "d": 56
+        },
+        {
+          "a": {
+            "a": 14
+          },
+          "b": "effectName",
+          "d": 48
+        },
+        {
+          "a": {
+            "a": 30,
+            "c": {
+              "b": "worldEffect"
+            }
+          },
+          "b": "effect",
+          "d": 64
+        },
+        {
+          "a": {
+            "b": "worldCompiledEffectInfo"
+          },
+          "b": "compiledEffectInfo",
+          "d": 72
+        },
+        {
+          "a": {
+            "a": 14
+          },
+          "b": "autoSpawnTag",
+          "d": 176
+        },
+        {
+          "a": {
+            "a": 1
+          },
+          "b": "isAutoSpawn",
+          "d": 184
+        },
+        {
+          "a": {
+            "a": 3
+          },
+          "b": "randomWeight",
+          "d": 185
+        }
+      ],
+      "methods": []
+    },
+    "entEffectSpawnerComponent": {
+      "alias": null,
+      "properties": [
+        {
+          "a": {
+            "a": 31,
+            "c": {
+              "a": 26,
+              "c": {
+                "b": "entEffectDesc"
+              }
+            }
+          },
+          "b": "effectDescs",
+          "d": 320
+        }
+      ],
+      "methods": []
+    },
+    "entEntity": {
+      "alias": "Entity",
+      "properties": [],
+      "methods": [
+        {
+          "a": "FindComponentByName",
+          "c": {
+            "a": 26,
+            "c": {
+              "b": "entIComponent"
+            }
+          },
+          "d": 132,
+          "e": [
+            {
+              "a": {
+                "a": 14
+              },
+              "b": "componentName"
+            }
+          ]
+        }
+      ]
+    },
+    "gameObject": {
+      "alias": "GameObject",
+      "properties": [],
+      "methods": [
+        {
+          "a": "StartStatusEffectVFX;ApplyStatusEffectEvent",
+          "b": "StartStatusEffectVFX",
+          "d": 34,
+          "e": [
+            {
+              "a": {
+                "a": 26,
+                "c": {
+                  "b": "gameeventsApplyStatusEffectEvent"
+                }
+              },
+              "b": "evt"
+            }
+          ]
+        }
+      ]
+    },
+    "gamehelperGameObjectEffectHelper": {
+      "alias": "GameObjectEffectHelper",
+      "properties": [],
+      "methods": [
+        {
+          "a": "BreakEffectLoopEvent",
+          "d": 12,
+          "e": [
+            {
+              "a": {
+                "a": 26,
+                "c": {
+                  "b": "gameObject"
+                }
+              },
+              "b": "obj"
+            },
+            {
+              "a": {
+                "a": 14
+              },
+              "b": "effectName"
+            }
+          ]
+        },
+        {
+          "a": "StartEffectEvent",
+          "d": 12,
+          "e": [
+            {
+              "a": {
+                "a": 26,
+                "c": {
+                  "b": "gameObject"
+                }
+              },
+              "b": "obj"
+            },
+            {
+              "a": {
+                "a": 14
+              },
+              "b": "effectName"
+            },
+            {
+              "a": {
+                "a": 1
+              },
+              "b": "shouldPersist",
+              "c": 4
+            },
+            {
+              "a": {
+                "a": 26,
+                "c": {
+                  "b": "worldEffectBlackboard"
+                }
+              },
+              "b": "blackboard",
+              "c": 4
+            },
+            {
+              "a": {
+                "a": 1
+              },
+              "b": "startOnlyIfNotStarted",
+              "c": 4
+            }
+          ]
+        },
+        {
+          "a": "StopEffectEvent",
+          "d": 12,
+          "e": [
+            {
+              "a": {
+                "a": 26,
+                "c": {
+                  "b": "gameObject"
+                }
+              },
+              "b": "obj"
+            },
+            {
+              "a": {
+                "a": 14
+              },
+              "b": "effectName"
+            }
+          ]
+        }
+      ]
+    },
+    "redResourceAsyncRefWrapper": {
+      "alias": null,
+      "properties": [],
+      "methods": [
+        {
+          "a": "GetHash",
+          "c": {
+            "a": 9
+          },
+          "d": 12,
+          "e": [
+            {
+              "a": {
+                "a": 28,
+                "c": {
+                  "b": "redResourceAsyncRefWrapper"
+                }
+              },
+              "b": "self"
+            }
+          ]
+        },
+        {
+          "a": "GetPath",
+          "c": {
+            "b": "redResourceReferenceScriptToken"
+          },
+          "d": 12,
+          "e": [
+            {
+              "a": {
+                "a": 28,
+                "c": {
+                  "b": "redResourceAsyncRefWrapper"
+                }
+              },
+              "b": "self"
+            }
+          ]
+        },
+        {
+          "a": "IsEmpty",
+          "c": {
+            "a": 1
+          },
+          "d": 12,
+          "e": [
+            {
+              "a": {
+                "a": 28,
+                "c": {
+                  "b": "redResourceAsyncRefWrapper"
+                }
+              },
+              "b": "self"
+            }
+          ]
+        },
+        {
+          "a": "SetPath",
+          "d": 12,
+          "e": [
+            {
+              "a": {
+                "a": 28,
+                "c": {
+                  "b": "redResourceAsyncRefWrapper"
+                }
+              },
+              "b": "self"
+            },
+            {
+              "a": {
+                "b": "redResourceReferenceScriptToken"
+              },
+              "b": "path"
+            }
+          ]
+        }
+      ]
+    },
+    "redResourceReferenceScriptToken": {
+      "alias": "ResRef",
+      "properties": [],
+      "methods": [
+        {
+          "a": "FromString",
+          "c": {
+            "b": "redResourceReferenceScriptToken"
+          },
+          "d": 12,
+          "e": [
+            {
+              "a": {
+                "a": 12
+              },
+              "b": "path"
+            }
+          ]
+        },
+        {
+          "a": "GetHash",
+          "c": {
+            "a": 9
+          },
+          "d": 12,
+          "e": [
+            {
+              "a": {
+                "b": "redResourceReferenceScriptToken"
+              },
+              "b": "path"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "limits": "Community RTTI confirms signatures and property types; no method-body timing, REDscript compile, CET interop, game loading or GPU rendering validated."
+}
